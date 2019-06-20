@@ -13,20 +13,18 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.hvlin.myapplication;
+package com.phoenix.myapplication;
 
 import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.alibaba.fastjson.JSON;
-import com.hvlin.myapplication.viewholders.CountCheckBoxItemViewHolder;
-import com.hvlin.myapplication.viewholders.CountFooterViewHolder;
-import com.hvlin.myapplication.viewholders.CountHeaderViewHolder;
-import com.hvlin.myapplication.viewholders.CountItemViewHolder;
+import com.phoenix.myapplication.viewholders.CountCheckBoxItemViewHolder;
+import com.phoenix.myapplication.viewholders.CountFooterViewHolder;
+import com.phoenix.myapplication.viewholders.CountHeaderViewHolder;
 import com.truizlop.sectionedrecyclerview.SectionedRecyclerViewAdapter;
 
 import java.util.ArrayList;

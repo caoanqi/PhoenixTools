@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.hvlin.myapplication">
+    package="com.phoenix.myapplication">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -11,12 +11,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".view.ExpandListViewActivity"></activity>
-        <activity android:name=".view.SqliteActivity" />
-        <activity android:name=".view.QuneeActivity" />
-        <activity android:name=".view.UsbSocketActivity" />
+        <activity android:name="com.phoenix.myapplication.view.ExpandListViewActivity"></activity>
+        <activity android:name="com.phoenix.myapplication.view.SqliteActivity" />
+        <activity android:name="com.phoenix.myapplication.view.QuneeActivity" />
+        <activity android:name="com.phoenix.myapplication.view.UsbSocketActivity" />
         <activity
-            android:name=".MainActivity"
+            android:name="com.phoenix.myapplication.MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>

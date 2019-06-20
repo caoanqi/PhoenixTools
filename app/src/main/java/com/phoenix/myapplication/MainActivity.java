@@ -1,10 +1,8 @@
-package com.hvlin.myapplication;
+package com.phoenix.myapplication;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -18,13 +16,12 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
-import android.widget.Toast;
 
 import com.alibaba.fastjson.JSON;
-import com.hvlin.myapplication.view.ExpandListViewActivity;
-import com.hvlin.myapplication.view.QuneeActivity;
-import com.hvlin.myapplication.view.SqliteActivity;
-import com.hvlin.myapplication.view.UsbSocketActivity;
+import com.phoenix.myapplication.view.ExpandListViewActivity;
+import com.phoenix.myapplication.view.QuneeActivity;
+import com.phoenix.myapplication.view.SqliteActivity;
+import com.phoenix.myapplication.view.UsbSocketActivity;
 import com.truizlop.sectionedrecyclerview.SectionedSpanSizeLookup;
 
 import java.util.ArrayList;

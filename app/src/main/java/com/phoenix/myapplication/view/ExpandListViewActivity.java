@@ -1,4 +1,4 @@
-package com.hvlin.myapplication.view;
+package com.phoenix.myapplication.view;
 
 import android.content.Context;
 import android.databinding.DataBindingUtil;
@@ -8,12 +8,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
-import android.widget.ExpandableListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.hvlin.myapplication.R;
-import com.hvlin.myapplication.databinding.ActivityExpandListViewBinding;
+import com.phoenix.myapplication.R;
+import com.phoenix.myapplication.databinding.ActivityExpandListViewBinding;
 
 public class ExpandListViewActivity extends AppCompatActivity {
 

@@ -1,4 +1,4 @@
-package com.hvlin.myapplication.view;
+package com.phoenix.myapplication.view;
 
 import android.databinding.DataBindingUtil;
 import android.graphics.Bitmap;
@@ -7,9 +7,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Button;
 
-import com.hvlin.myapplication.R;
-import com.hvlin.myapplication.databinding.ActivitySqliteBinding;
-import com.hvlin.myapplication.db.DBOperate;
+import com.phoenix.myapplication.R;
+import com.phoenix.myapplication.databinding.ActivitySqliteBinding;
+import com.phoenix.myapplication.db.DBOperate;
 
 public class SqliteActivity extends AppCompatActivity {
 

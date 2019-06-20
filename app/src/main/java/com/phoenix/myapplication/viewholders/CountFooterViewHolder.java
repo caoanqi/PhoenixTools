@@ -13,14 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.hvlin.myapplication.viewholders;
+package com.phoenix.myapplication.viewholders;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
 
 
-import com.hvlin.myapplication.R;
+import com.phoenix.myapplication.R;
 
 
 /**

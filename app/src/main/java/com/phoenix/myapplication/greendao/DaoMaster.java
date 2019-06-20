@@ -1,4 +1,4 @@
-package com.hvlin.myapplication.greendao;
+package com.phoenix.myapplication.greendao;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;

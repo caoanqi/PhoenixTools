@@ -1,4 +1,4 @@
-package com.hvlin.myapplication.view;
+package com.phoenix.myapplication.view;
 
 import android.databinding.DataBindingUtil;
 import android.support.v7.app.AppCompatActivity;
@@ -6,9 +6,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.hvlin.myapplication.MainActivity;
-import com.hvlin.myapplication.R;
-import com.hvlin.myapplication.databinding.ActivityUsbSocketBinding;
+import com.phoenix.myapplication.R;
+import com.phoenix.myapplication.databinding.ActivityUsbSocketBinding;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;

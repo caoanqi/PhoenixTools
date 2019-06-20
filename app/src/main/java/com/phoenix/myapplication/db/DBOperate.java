@@ -1,4 +1,4 @@
-package com.hvlin.myapplication.db;
+package com.phoenix.myapplication.db;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -7,12 +7,10 @@ import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
-import com.hvlin.myapplication.R;
+import com.phoenix.myapplication.R;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 
 /**

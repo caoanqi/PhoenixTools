@@ -1,4 +1,4 @@
-package com.hvlin.myapplication.view;
+package com.phoenix.myapplication.view;
 
 import android.annotation.SuppressLint;
 import android.databinding.DataBindingUtil;
@@ -12,8 +12,8 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
-import com.hvlin.myapplication.R;
-import com.hvlin.myapplication.databinding.ActivityQuneeBinding;
+import com.phoenix.myapplication.R;
+import com.phoenix.myapplication.databinding.ActivityQuneeBinding;
 
 public class QuneeActivity extends AppCompatActivity {
 

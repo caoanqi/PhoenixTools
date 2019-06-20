@@ -1,6 +1,4 @@
-package com.hvlin.myapplication.entity;
-
-import android.support.annotation.IntDef;
+package com.phoenix.myapplication.entity;
 
 import org.greenrobot.greendao.annotation.Entity;
 import org.greenrobot.greendao.annotation.Generated;
