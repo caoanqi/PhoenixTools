@@ -1,4 +1,4 @@
-package com.phoenix.myapplication;
+package com.phoenix.myapplication.entity;
 
 import java.util.List;
 

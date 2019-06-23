@@ -1,22 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.phoenix.myapplication">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
 
     <application
+        android:name=".PhoenixApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name="com.phoenix.myapplication.view.ExpandListViewActivity"></activity>
-        <activity android:name="com.phoenix.myapplication.view.SqliteActivity" />
-        <activity android:name="com.phoenix.myapplication.view.QuneeActivity" />
-        <activity android:name="com.phoenix.myapplication.view.UsbSocketActivity" />
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning">
+
         <activity
-            android:name="com.phoenix.myapplication.MainActivity"
+            android:name=".MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -25,6 +28,26 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.phoenix.myapplication.fileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+        <activity android:name=".view.CustomSigningActivity"/>
+        <activity android:name=".view.InstallAppActivity" />
+        <activity android:name=".view.recyclerview.RecyclerViewSwipDeleteActivity" />
+        <activity android:name=".view.recyclerview.RecyclerViewActivity" />
+        <activity android:name=".view.ExpandListViewActivity" />
+        <activity android:name=".view.SqliteActivity" />
+        <activity android:name=".view.QuneeActivity" />
+        <activity android:name=".view.UsbSocketActivity" />
+
+
     </application>
 
 </manifest>

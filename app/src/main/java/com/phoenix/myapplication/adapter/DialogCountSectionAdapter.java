@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.phoenix.myapplication;
+package com.phoenix.myapplication.adapter;
 
 import android.content.Context;
 import android.util.Log;
@@ -22,9 +22,11 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.alibaba.fastjson.JSON;
-import com.phoenix.myapplication.viewholders.CountCheckBoxItemViewHolder;
-import com.phoenix.myapplication.viewholders.CountFooterViewHolder;
-import com.phoenix.myapplication.viewholders.CountHeaderViewHolder;
+import com.phoenix.myapplication.R;
+import com.phoenix.myapplication.entity.DeviceBean;
+import com.phoenix.myapplication.adapter.viewholders.CountCheckBoxItemViewHolder;
+import com.phoenix.myapplication.adapter.viewholders.CountFooterViewHolder;
+import com.phoenix.myapplication.adapter.viewholders.CountHeaderViewHolder;
 import com.truizlop.sectionedrecyclerview.SectionedRecyclerViewAdapter;
 
 import java.util.ArrayList;

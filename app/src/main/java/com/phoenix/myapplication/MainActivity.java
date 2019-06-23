@@ -1,8 +1,16 @@
 package com.phoenix.myapplication;
 
+import android.Manifest;
+import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.RequiresApi;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.TabLayout;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -16,21 +24,34 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.alibaba.fastjson.JSON;
+import com.blankj.utilcode.util.LogUtils;
+import com.phoenix.myapplication.adapter.CountSectionAdapter;
+import com.phoenix.myapplication.entity.DeviceBean;
+import com.phoenix.myapplication.view.CustomSigningActivity;
 import com.phoenix.myapplication.view.ExpandListViewActivity;
+import com.phoenix.myapplication.view.InstallAppActivity;
 import com.phoenix.myapplication.view.QuneeActivity;
 import com.phoenix.myapplication.view.SqliteActivity;
 import com.phoenix.myapplication.view.UsbSocketActivity;
+import com.phoenix.myapplication.view.recyclerview.RecyclerViewActivity;
+import com.phoenix.myapplication.view.recyclerview.RecyclerViewSwipDeleteActivity;
+import com.tbruyelle.rxpermissions2.Permission;
+import com.tbruyelle.rxpermissions2.RxPermissions;
 import com.truizlop.sectionedrecyclerview.SectionedSpanSizeLookup;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import io.reactivex.functions.Consumer;
+
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    private static final String TAG = MainActivity.class.getSimpleName();
     RecyclerView recycler;
     List<DeviceBean> deviceBeanList;
     private FloatingActionButton fab;
@@ -38,52 +59,71 @@ public class MainActivity extends AppCompatActivity
     Button btnQunee;
     Button btSqlite;
     Button bt_expand_list_view;
-
+    Button bt_update_app;
+    Button bt_custom_sign;
+    Button bt_recycler_view_expand;
+    Button bt_recycler_view_swip_delete;
+    Toolbar toolbar;
+    DrawerLayout drawer;
+    NavigationView navigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+
+        checkPermission();
+        initView();
+        initListener();
+        initData();
+        setupRecycler();
+
+
+    }
+
+    private void initView() {
+        toolbar = findViewById(R.id.toolbar);
         recycler = findViewById(R.id.recycler);
         fab = findViewById(R.id.fab);
         btnUsbSocket = findViewById(R.id.btn_usb_socket);
         btnQunee = findViewById(R.id.bt_qunee);
         bt_expand_list_view = findViewById(R.id.bt_expand_list_view);
         btSqlite = findViewById(R.id.bt_sqlite);
-        setSupportActionBar(toolbar);
+        navigationView = findViewById(R.id.nav_view);
+        drawer = findViewById(R.id.drawer_layout);
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        bt_update_app = findViewById(R.id.bt_update_app);
+        bt_recycler_view_expand = findViewById(R.id.bt_recycler_view_expand);
+        bt_recycler_view_swip_delete = findViewById(R.id.bt_recycler_view_swip_delete);
+        bt_custom_sign = findViewById(R.id.bt_custom_sign);
+
+        setSupportActionBar(toolbar);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
+    }
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+    private void initListener() {
+        fab.setOnClickListener(v -> showAlertDialog());
         navigationView.setNavigationItemSelectedListener(this);
-        initData();
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showAlertDialog();
-            }
-        });
-        btnQunee.setOnClickListener(v -> {
-            startActivity(new Intent().setClass(this, QuneeActivity.class));
-        });
+
+        btnQunee.setOnClickListener(v -> startActivity(new Intent().setClass(this,
+                QuneeActivity.class)));
         btSqlite.setOnClickListener(v -> startActivity(new Intent().setClass(this,
                 SqliteActivity.class)));
-
-        btnUsbSocket.setOnClickListener(v -> {
-            startActivity(new Intent().setClass(MainActivity.this, UsbSocketActivity.class));
-        });
-        bt_expand_list_view.setOnClickListener(v -> {
-            startActivity(new Intent().setClass(MainActivity.this, ExpandListViewActivity.class));
-        });
-
-        setupRecycler();
-
-
+        btnUsbSocket.setOnClickListener(v -> startActivity(new Intent().setClass(this,
+                UsbSocketActivity.class)));
+        bt_expand_list_view.setOnClickListener(v -> startActivity(new Intent().setClass(this,
+                ExpandListViewActivity.class)));
+        bt_update_app.setOnClickListener(v -> startActivity(new Intent().setClass(this,
+                InstallAppActivity.class)));
+        bt_custom_sign.setOnClickListener(v -> startActivity(new Intent().setClass(this,
+                CustomSigningActivity.class)));
+        bt_recycler_view_swip_delete.setOnClickListener(view -> startActivity(new Intent().setClass(this,
+                RecyclerViewSwipDeleteActivity.class)));
+        bt_recycler_view_expand.setOnClickListener(view -> startActivity(new Intent().setClass(this,
+                RecyclerViewActivity.class)));
     }
 
     private void showAlertDialog() {
@@ -184,9 +224,52 @@ public class MainActivity extends AppCompatActivity
         recycler.setLayoutManager(layoutManager);
     }
 
+    @SuppressLint("CheckResult")
+    private void checkPermission() {
+        RxPermissions permissions = new RxPermissions(this);
+        permissions.setLogging(true);
+        permissions.requestEach(Manifest.permission.READ_EXTERNAL_STORAGE,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                .subscribe(new Consumer<Permission>() {
+                    @Override
+                    public void accept(Permission permission) throws Exception {
+                        LogUtils.e(TAG, "checkPermissionRequestEach--:" + "-permission-:" + permission.name + "---------------");
+                        if (permission.name.equalsIgnoreCase(Manifest.permission.READ_EXTERNAL_STORAGE)) {
+                            if (permission.granted) {//同意后调用
+                                LogUtils.e(TAG, "checkPermissionRequestEach--:" + "-READ_EXTERNAL_STORAGE-:" + true);
+                            } else if (permission.shouldShowRequestPermissionRationale) {
+                                //禁止，但没有选择“以后不再询问”，以后申请权限，会继续弹出提示
+                                LogUtils.e(TAG, "checkPermissionRequestEach--:" + "-READ_EXTERNAL_STORAGE-shouldShowRequestPermissionRationale:" + false);
+                            } else {//禁止，但选择“以后不再询问”，以后申请权限，不会继续弹出提示
+                                LogUtils.e(TAG, "checkPermissionRequestEach--:" + "-READ_EXTERNAL_STORAGE-:" + false);
+                            }
+                        }
+                        if (permission.name.equalsIgnoreCase(Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
+                            if (permission.granted) {
+                                LogUtils.e(TAG, "checkPermissionRequestEach--:" + "-WRITE_EXTERNAL_STORAGE-:" + true);
+                            } else if (permission.shouldShowRequestPermissionRationale) {
+                                LogUtils.e(TAG, "checkPermissionRequestEach--:" + "-READ_EXTERNAL_STORAGE-shouldShowRequestPermissionRationale:" + false);
+                            } else {
+                                LogUtils.e(TAG, "checkPermissionRequestEach--:" + "-WRITE_EXTERNAL_STORAGE-:" + false);
+                            }
+                        }
+                    }
+                });
+    }
+
+    private void show(String msg) {
+        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+
+    }
+
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {

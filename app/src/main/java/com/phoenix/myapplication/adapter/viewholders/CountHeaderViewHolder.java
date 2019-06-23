@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.phoenix.myapplication.viewholders;
+package com.phoenix.myapplication.adapter.viewholders;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -26,11 +26,11 @@ import com.phoenix.myapplication.R;
 /**
  * Created by tomas on 15/07/15.
  */
-public class CountFooterViewHolder extends RecyclerView.ViewHolder {
+public class CountHeaderViewHolder extends RecyclerView.ViewHolder {
 
     TextView textView;
 
-    public CountFooterViewHolder(View itemView) {
+    public CountHeaderViewHolder(View itemView) {
         super(itemView);
         textView = itemView.findViewById(R.id.title);
     }

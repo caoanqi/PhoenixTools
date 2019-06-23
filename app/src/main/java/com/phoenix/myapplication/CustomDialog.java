@@ -10,6 +10,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.phoenix.myapplication.adapter.DialogCountSectionAdapter;
+import com.phoenix.myapplication.entity.DeviceBean;
 import com.truizlop.sectionedrecyclerview.SectionedSpanSizeLookup;
 
 import java.util.ArrayList;
