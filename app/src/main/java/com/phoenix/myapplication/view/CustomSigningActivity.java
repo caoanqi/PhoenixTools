@@ -4,12 +4,31 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.phoenix.myapplication.R;
+import com.phoenix.myapplication.base.BaseActivity;
+import com.phoenix.myapplication.databinding.ActivityCustomSigningBinding;
 
-public class CustomSigningActivity extends AppCompatActivity {
+/**
+ * 自定义签名
+ */
+public class CustomSigningActivity extends BaseActivity<ActivityCustomSigningBinding> {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_custom_signing);
+    protected int getLayoutId() {
+        return R.layout.activity_custom_signing;
+    }
+
+    @Override
+    protected void initView() {
+
+    }
+
+    @Override
+    protected void initData() {
+
+    }
+
+    @Override
+    protected void initListener() {
+
     }
 }
