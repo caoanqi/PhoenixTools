@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".MainActivity"
     tools:showIn="@layout/app_bar_main">
@@ -13,93 +14,63 @@
         android:id="@+id/btn_usb_socket"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="35dp"
-        android:layout_marginLeft="35dp"
-        android:layout_marginTop="46dp"
         android:text="USB SOCKET"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        tools:layout_editor_absoluteX="35dp"
+        tools:layout_editor_absoluteY="46dp" />
 
     <Button
         android:id="@+id/bt_qunee"
         android:layout_width="135dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="108dp"
-        android:layout_marginEnd="248dp"
-        android:layout_marginRight="248dp"
-        android:layout_marginBottom="164dp"
+        android:layout_height="54dp"
         android:text="Qunee 拓扑图"
-        app:layout_constraintBottom_toTopOf="@+id/bt_recycler_view_expand"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        tools:layout_editor_absoluteX="29dp"
+        tools:layout_editor_absoluteY="108dp" />
 
     <Button
         android:id="@+id/bt_sqlite"
         android:layout_width="122dp"
         android:layout_height="45dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginTop="184dp"
         android:text="sqlite操作"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        tools:layout_editor_absoluteX="32dp"
+        tools:layout_editor_absoluteY="184dp" />
 
     <Button
         android:id="@+id/bt_expand_list_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="252dp"
-        android:layout_marginEnd="224dp"
-        android:layout_marginRight="224dp"
         android:text="expand_list_view"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        tools:layout_editor_absoluteX="32dp"
+        tools:layout_editor_absoluteY="252dp" />
 
     <Button
         android:id="@+id/bt_recycler_view_expand"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="35dp"
-        android:layout_marginLeft="35dp"
-        android:layout_marginBottom="26dp"
         android:text="recyclerview 分级显示"
-        app:layout_constraintBottom_toTopOf="@+id/bt_recycler_view_swip_delete"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bt_qunee" />
+        tools:layout_editor_absoluteX="35dp"
+        tools:layout_editor_absoluteY="326dp" />
 
     <Button
         android:id="@+id/bt_recycler_view_swip_delete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="35dp"
-        android:layout_marginLeft="35dp"
-        android:layout_marginBottom="30dp"
         android:text="reyclerView侧滑删除"
-        app:layout_constraintBottom_toTopOf="@+id/bt_custom_sign"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bt_recycler_view_expand" />
+        tools:layout_editor_absoluteX="35dp"
+        tools:layout_editor_absoluteY="400dp" />
 
     <Button
         android:id="@+id/bt_custom_sign"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="42dp"
-        android:layout_marginLeft="42dp"
-        android:layout_marginBottom="29dp"
         android:text="自定义签字"
-        app:layout_constraintBottom_toTopOf="@+id/bt_update_app"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bt_recycler_view_swip_delete" />
+        tools:layout_editor_absoluteX="42dp"
+        tools:layout_editor_absoluteY="478dp" />
 
     <Button
         android:id="@+id/bt_update_app"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="41dp"
-        android:layout_marginLeft="41dp"
-        android:layout_marginBottom="72dp"
         android:text="apk升级"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bt_custom_sign" />
-</android.support.constraint.ConstraintLayout>
+        tools:layout_editor_absoluteX="41dp"
+        tools:layout_editor_absoluteY="555dp" />
+</LinearLayout>
