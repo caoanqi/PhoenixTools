@@ -11,6 +11,7 @@ import android.widget.BaseExpandableListAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.blankj.utilcode.util.LogUtils;
 import com.phoenix.myapplication.R;
 import com.phoenix.myapplication.databinding.ActivityExpandListViewBinding;
 
@@ -38,16 +39,21 @@ public class ExpandListViewActivity extends AppCompatActivity {
         //设置分组的监听
         activityExpandListViewBinding.elvTest.setOnGroupClickListener((parent, v, groupPosition, id) -> {
             Toast.makeText(getApplicationContext(), groupString[groupPosition], Toast.LENGTH_SHORT).show();
+            LogUtils.e("lin");
+
             return false;
         });
         //设置子项布局监听
         activityExpandListViewBinding.elvTest.setOnChildClickListener((parent, v, groupPosition, childPosition, id) -> {
             Toast.makeText(getApplicationContext(), childString[groupPosition][childPosition], Toast.LENGTH_SHORT).show();
+            LogUtils.e("you");
+
             return true;
 
         });
         //控制他只能打开一个组
         activityExpandListViewBinding.elvTest.setOnGroupExpandListener(groupPosition -> {
+            LogUtils.e("cao");
             int count = new MyExtendableListViewAdapter().getGroupCount();
             for (int i = 0; i < count; i++) {
                 if (i != groupPosition) {
