@@ -8,6 +8,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
 import com.phoenix.myapplication.R;
+import com.phoenix.myapplication.entity.User;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -74,6 +75,26 @@ public class DBOperate {
             }
         }
         return new byte[0];
+    }
+
+    public void insertData(String name) {
+        SQLiteDatabase db = dbhelper.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put("name", name);
+        db.insert("User", null, cv);
+        db.close();
+    }
+
+    public void updateData(User user) {
+
+    }
+
+    public void deleteData(User user) {
+
+    }
+
+    public void getData() {
+
     }
 
 }

@@ -2,6 +2,7 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -20,6 +21,34 @@
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:text="保存图片" />
+
+        <Button
+            android:id="@+id/bt_insert_data"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:text="插入数据" />
+
+        <Button
+            android:id="@+id/bt_update_data"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:text="修改数据" />
+
+        <Button
+            android:id="@+id/bt_delete_data"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:text="删除数据" />
+
+        <Button
+            android:id="@+id/bt_get_data"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:text="查询数据" />
 
         <ImageView
             android:id="@+id/iv_show"

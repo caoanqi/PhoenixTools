@@ -33,6 +33,7 @@ import com.phoenix.myapplication.entity.DeviceBean;
 import com.phoenix.myapplication.view.CustomSigningActivity;
 import com.phoenix.myapplication.view.ExpandListViewActivity;
 import com.phoenix.myapplication.view.InstallAppActivity;
+import com.phoenix.myapplication.view.NavDrawActivity;
 import com.phoenix.myapplication.view.QuneeActivity;
 import com.phoenix.myapplication.view.SqliteActivity;
 import com.phoenix.myapplication.view.UsbSocketActivity;
@@ -63,6 +64,7 @@ public class MainActivity extends AppCompatActivity
     Button bt_custom_sign;
     Button bt_recycler_view_expand;
     Button bt_recycler_view_swip_delete;
+    Button bt_nav_draw;
     Toolbar toolbar;
     DrawerLayout drawer;
     NavigationView navigationView;
@@ -91,6 +93,7 @@ public class MainActivity extends AppCompatActivity
         btSqlite = findViewById(R.id.bt_sqlite);
         navigationView = findViewById(R.id.nav_view);
         drawer = findViewById(R.id.drawer_layout);
+        bt_nav_draw = findViewById(R.id.bt_nav_draw);
 
         bt_update_app = findViewById(R.id.bt_update_app);
         bt_recycler_view_expand = findViewById(R.id.bt_recycler_view_expand);
@@ -124,6 +127,10 @@ public class MainActivity extends AppCompatActivity
                 RecyclerViewSwipDeleteActivity.class)));
         bt_recycler_view_expand.setOnClickListener(view -> startActivity(new Intent().setClass(this,
                 RecyclerViewActivity.class)));
+        bt_nav_draw.setOnClickListener(view -> {
+            startActivity(new Intent().setClass(this,
+                    NavDrawActivity.class));
+        });
     }
 
     private void showAlertDialog() {

@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.SparseArray;
 import android.widget.Button;
 
 import com.phoenix.myapplication.R;
@@ -33,7 +34,30 @@ public class SqliteActivity extends AppCompatActivity {
 
         activitySqliteBinding.btReadImage.setOnClickListener(v -> readImage());
         activitySqliteBinding.btWriteImage.setOnClickListener(v -> saveImage(url));
+
+        activitySqliteBinding.btInsertData.setOnClickListener(v -> insertData());
+        activitySqliteBinding.btUpdateData.setOnClickListener(v -> updateData());
+        activitySqliteBinding.btDeleteData.setOnClickListener(v -> deleteData());
+        activitySqliteBinding.btGetData.setOnClickListener(v -> getData());
     }
+
+    private void insertData() {
+        new DBOperate(this).insertData("张三");
+    }
+
+    private void updateData() {
+
+
+    }
+
+    private void deleteData() {
+
+    }
+
+    private void getData() {
+
+    }
+
 
     private void readImage() {
 
