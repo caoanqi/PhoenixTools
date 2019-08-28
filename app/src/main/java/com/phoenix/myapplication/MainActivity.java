@@ -34,6 +34,7 @@ import com.phoenix.myapplication.view.CustomSigningActivity;
 import com.phoenix.myapplication.view.ExpandListViewActivity;
 import com.phoenix.myapplication.view.InstallAppActivity;
 import com.phoenix.myapplication.view.NavDrawActivity;
+import com.phoenix.myapplication.view.NavigationViewActivity;
 import com.phoenix.myapplication.view.QuneeActivity;
 import com.phoenix.myapplication.view.SqliteActivity;
 import com.phoenix.myapplication.view.UsbSocketActivity;
@@ -129,7 +130,7 @@ public class MainActivity extends AppCompatActivity
                 RecyclerViewActivity.class)));
         bt_nav_draw.setOnClickListener(view -> {
             startActivity(new Intent().setClass(this,
-                    NavDrawActivity.class));
+                    NavigationViewActivity.class));
         });
     }
 
