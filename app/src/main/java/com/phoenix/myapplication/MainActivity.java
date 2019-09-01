@@ -3,18 +3,12 @@ package com.phoenix.myapplication;
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.annotation.RequiresApi;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.TabLayout;
-import android.support.v4.app.ActivityCompat;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -30,13 +24,13 @@ import com.alibaba.fastjson.JSON;
 import com.blankj.utilcode.util.LogUtils;
 import com.phoenix.myapplication.adapter.CountSectionAdapter;
 import com.phoenix.myapplication.entity.DeviceBean;
-import com.phoenix.myapplication.view.CustomSigningActivity;
-import com.phoenix.myapplication.view.ExpandListViewActivity;
+import com.phoenix.myapplication.view.sign.CustomSigningActivity;
+import com.phoenix.myapplication.view.expand.ExpandListViewActivity;
 import com.phoenix.myapplication.view.InstallAppActivity;
 import com.phoenix.myapplication.view.NavDrawActivity;
-import com.phoenix.myapplication.view.NavigationViewActivity;
-import com.phoenix.myapplication.view.QuneeActivity;
-import com.phoenix.myapplication.view.SqliteActivity;
+import com.phoenix.myapplication.view.web.QuneeActivity;
+import com.phoenix.myapplication.view.data.SqliteActivity;
+import com.phoenix.myapplication.view.tabelview.TableViewActivity;
 import com.phoenix.myapplication.view.UsbSocketActivity;
 import com.phoenix.myapplication.view.recyclerview.RecyclerViewActivity;
 import com.phoenix.myapplication.view.recyclerview.RecyclerViewSwipDeleteActivity;
@@ -66,6 +60,7 @@ public class MainActivity extends AppCompatActivity
     Button bt_recycler_view_expand;
     Button bt_recycler_view_swip_delete;
     Button bt_nav_draw;
+    Button btTableView;
     Toolbar toolbar;
     DrawerLayout drawer;
     NavigationView navigationView;
@@ -100,6 +95,7 @@ public class MainActivity extends AppCompatActivity
         bt_recycler_view_expand = findViewById(R.id.bt_recycler_view_expand);
         bt_recycler_view_swip_delete = findViewById(R.id.bt_recycler_view_swip_delete);
         bt_custom_sign = findViewById(R.id.bt_custom_sign);
+        btTableView = findViewById(R.id.bt_table_view);
 
         setSupportActionBar(toolbar);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -132,6 +128,9 @@ public class MainActivity extends AppCompatActivity
             startActivity(new Intent().setClass(this,
                     NavDrawActivity.class));
         });
+
+        btTableView.setOnClickListener(view -> startActivity(new Intent().setClass(this,
+                TableViewActivity.class)));
     }
 
     private void showAlertDialog() {

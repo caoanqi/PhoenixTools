@@ -1,4 +1,4 @@
-package com.phoenix.myapplication.view;
+package com.phoenix.myapplication.view.web;
 
 import android.annotation.SuppressLint;
 import android.databinding.DataBindingUtil;

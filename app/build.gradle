@@ -9,6 +9,8 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        vectorDrawables.useSupportLibrary = true
     }
     buildTypes {
         debug {
@@ -36,8 +38,8 @@ android {
 //generateTests：设置自动生成单元测试用例
     greendao {
         schemaVersion 1
-        daoPackage 'com.hvlin.myapplication.greendao'
-        targetGenDir 'src/main/java'
+        //daoPackage 'com.hvlin.myapplication.greendao'
+        //targetGenDir 'src/main/java'
     }
 }
 
@@ -55,6 +57,8 @@ dependencies {
     implementation 'org.greenrobot:greendao:3.2.0'
     implementation 'com.github.tbruyelle:rxpermissions:0.10.2'
     implementation 'com.blankj:utilcode:1.24.4'
+    //tableview
+    implementation 'com.evrencoskun.library:tableview:0.8.8'
 
     debugImplementation 'com.amitshekhar.android:debug-db:1.0.6'
 }

@@ -1,4 +1,4 @@
-package com.phoenix.myapplication.view;
+package com.phoenix.myapplication.view.data;
 
 import android.databinding.DataBindingUtil;
 import android.graphics.Bitmap;

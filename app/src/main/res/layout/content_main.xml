@@ -91,6 +91,14 @@
                 android:text="侧滑菜单"
                 tools:layout_editor_absoluteX="41dp"
                 tools:layout_editor_absoluteY="555dp" />
+
+            <Button
+                android:id="@+id/bt_table_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TableView"
+                tools:layout_editor_absoluteX="41dp"
+                tools:layout_editor_absoluteY="555dp" />
         </LinearLayout>
 
     </ScrollView>

@@ -1,4 +1,4 @@
-package com.phoenix.myapplication.view;
+package com.phoenix.myapplication.view.expand;
 
 import android.content.Context;
 import android.databinding.DataBindingUtil;

@@ -17,7 +17,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".view.NavigationViewActivity"></activity>
+        <activity android:name=".view.tabelview.TableViewActivity"></activity>
+        <activity android:name=".view.NavigationViewActivity" />
         <activity
             android:name=".view.NavDrawActivity"
             android:label="@string/title_activity_nav_draw"
@@ -43,13 +44,13 @@
                 android:resource="@xml/file_paths" />
         </provider>
 
-        <activity android:name=".view.CustomSigningActivity" />
+        <activity android:name=".view.sign.CustomSigningActivity" />
         <activity android:name=".view.InstallAppActivity" />
         <activity android:name=".view.recyclerview.RecyclerViewSwipDeleteActivity" />
         <activity android:name=".view.recyclerview.RecyclerViewActivity" />
-        <activity android:name=".view.ExpandListViewActivity" />
-        <activity android:name=".view.SqliteActivity" />
-        <activity android:name=".view.QuneeActivity" />
+        <activity android:name=".view.expand.ExpandListViewActivity" />
+        <activity android:name=".view.data.SqliteActivity" />
+        <activity android:name=".view.web.QuneeActivity" />
         <activity android:name=".view.UsbSocketActivity" />
     </application>
 
