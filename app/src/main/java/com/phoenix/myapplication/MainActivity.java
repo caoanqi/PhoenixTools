@@ -130,7 +130,7 @@ public class MainActivity extends AppCompatActivity
                 RecyclerViewActivity.class)));
         bt_nav_draw.setOnClickListener(view -> {
             startActivity(new Intent().setClass(this,
-                    NavigationViewActivity.class));
+                    NavDrawActivity.class));
         });
     }
 
@@ -320,10 +320,6 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_slideshow) {
 
         } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
 
         }
 

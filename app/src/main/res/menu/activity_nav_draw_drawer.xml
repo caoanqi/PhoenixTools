@@ -3,51 +3,40 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
-    <group android:id="@+id/home">
+    <group
+        android:id="@+id/home"
+        android:checkableBehavior="single">
         <item
             android:id="@+id/nav_home"
             android:icon="@drawable/ic_menu_camera"
-            android:title="@string/menu_home"/>
-
-        <item
-            android:id="@+id/nav_home_child1"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="home child 1"
-            android:checked= "true"
-            app:showAsAction="ifRoom|collapseActionView" />
-        <item
-            android:id="@+id/nav_home_child2"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="home child 2"
-            app:showAsAction="ifRoom|collapseActionView" />
+            app:actionViewClass="android.widget.TextView"
+            android:title="@string/menu_home" />
 
     </group>
-    <group android:checkableBehavior="single">
+    <group
+        android:id="@+id/gl01"
+        android:checkableBehavior="single">
         <item
             android:id="@+id/nav_gallery"
             android:icon="@drawable/ic_menu_gallery"
             android:title="@string/menu_gallery" />
+    </group>
+    <group
+        android:id="@+id/gl02"
+        android:checkableBehavior="single">
         <item
             android:id="@+id/nav_slideshow"
             android:icon="@drawable/ic_menu_slideshow"
             android:title="@string/menu_slideshow" />
+    </group>
+    <group
+        android:id="@+id/gl03"
+        android:checkableBehavior="single">
         <item
             android:id="@+id/nav_tools"
             android:icon="@drawable/ic_menu_manage"
             android:title="@string/menu_tools" />
     </group>
 
-    <item android:title="Communicate">
-        <menu>
-            <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="@string/menu_share" />
-            <item
-                android:id="@+id/nav_send"
-                android:icon="@drawable/ic_menu_send"
-                android:title="@string/menu_send" />
-        </menu>
-    </item>
 
 </menu>

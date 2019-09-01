@@ -17,6 +17,8 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
+import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.blankj.utilcode.util.ToastUtils;
@@ -25,6 +27,7 @@ import com.phoenix.myapplication.R;
 public class NavDrawActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     NavigationView navigationView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,18 +37,13 @@ public class NavDrawActivity extends AppCompatActivity
 
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
-       navigationView= findViewById(R.id.nav_view);
+        navigationView = findViewById(R.id.nav_view);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
 
-        Resources resource=(Resources)getBaseContext().getResources();
-        ColorStateList csl=(ColorStateList)resource.getColorStateList(R.color.colorBlue);
-        navigationView.setItemTextColor(csl);
-/**设置MenuItem默认选中项**/
-        navigationView.getMenu().getItem(0).setChecked(true);
     }
 
     @Override
@@ -85,9 +83,17 @@ public class NavDrawActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-
+        TextView textView ;
         if (id == R.id.nav_home) {
             ToastUtils.showShort("Home");
+            item.setCheckable(true);
+            item.setChecked(true);
+            textView = (TextView) item.getActionView();
+            textView.setWidth(ViewGroup.LayoutParams.MATCH_PARENT);
+            textView.setHeight(64);
+            textView.setText("iii");
+            textView.setBackgroundColor(getResources().getColor(R.color.colorBlue));
+
             return false;
         } else if (id == R.id.nav_gallery) {
             ToastUtils.showShort("nav_gallery");
@@ -97,12 +103,6 @@ public class NavDrawActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_tools) {
             ToastUtils.showShort("nav_tools");
-
-        } else if (id == R.id.nav_share) {
-            ToastUtils.showShort("nav_share");
-
-        } else if (id == R.id.nav_send) {
-            ToastUtils.showShort("nav_send");
 
         }
 
