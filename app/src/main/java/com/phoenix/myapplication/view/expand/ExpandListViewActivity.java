@@ -11,6 +11,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -48,32 +49,17 @@ public class ExpandListViewActivity extends AppCompatActivity {
 
             return false;
         });
+
+
         //设置子项布局监听
-        activityExpandListViewBinding.elvTest.setOnChildClickListener((parent, v, groupPosition, childPosition, id) -> {
+//        activityExpandListViewBinding.elvTest.setOnChildClickListener((parent, v,
+//                                                                            groupPosition, childPosition, id) -> {
 //            Toast.makeText(getApplicationContext(), childString[groupPosition][childPosition], Toast.LENGTH_SHORT).show();
 //            LogUtils.e("you");
-            TextView tvDevice=v.findViewById(R.id.tv_child_name);
-
-            tvDevice.setOnTouchListener((view, motionEvent) -> {
-                switch (motionEvent.getAction()) {
-                    case MotionEvent.ACTION_DOWN:
-                        ToastUtils.showShort("hello");
-                        break;
-                    case MotionEvent.ACTION_MOVE:
-                        ToastUtils.showShort("hello1");
-                        break;
-                    case MotionEvent.ACTION_UP:
-                        ToastUtils.showShort("hello2");
-                        break;
-                    default:
-                        break;
-                }
-                return true;
-            });
-
-            return false;
-
-        });
+//
+//            return false;
+//
+//        });
         //控制他只能打开一个组
         activityExpandListViewBinding.elvTest.setOnGroupExpandListener(groupPosition -> {
             LogUtils.e("cao");
@@ -185,6 +171,7 @@ public class ExpandListViewActivity extends AppCompatActivity {
          * android.view.ViewGroup)
          */
 
+        @SuppressLint("ClickableViewAccessibility")
         @Override
         public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
             ChildViewHolder childViewHolder;
@@ -192,6 +179,7 @@ public class ExpandListViewActivity extends AppCompatActivity {
                 convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_child, parent, false);
                 childViewHolder = new ChildViewHolder();
                 childViewHolder.tvTitle = convertView.findViewById(R.id.tv_child_name);
+                childViewHolder.iv_topo_logo = convertView.findViewById(R.id.iv_topo_logo);
                 convertView.setTag(childViewHolder);
 
             } else {
@@ -199,6 +187,26 @@ public class ExpandListViewActivity extends AppCompatActivity {
             }
             childViewHolder.tvTitle.setText(childString[groupPosition][childPosition]);
 
+            childViewHolder.iv_topo_logo.setOnTouchListener(new View.OnTouchListener() {
+                @Override
+                public boolean onTouch(View view, MotionEvent motionEvent) {
+                    switch (motionEvent.getAction()){
+                        case MotionEvent.ACTION_DOWN:
+                            LogUtils.e("hello1");
+                            break;
+                        case MotionEvent.ACTION_MOVE:
+                            LogUtils.e("hello2");
+                            break;
+
+                        case MotionEvent.ACTION_UP:
+                            LogUtils.e("hello3");
+                            break;
+
+                        default:break;
+                    }
+                    return false;
+                }
+            });
             return convertView;
         }
 
@@ -214,6 +222,7 @@ public class ExpandListViewActivity extends AppCompatActivity {
 
         class ChildViewHolder {
             TextView tvTitle;
+            ImageView iv_topo_logo;
         }
     }
 
