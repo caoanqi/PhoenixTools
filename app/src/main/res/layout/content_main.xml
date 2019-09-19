@@ -99,6 +99,14 @@
                 android:text="TableView"
                 tools:layout_editor_absoluteX="41dp"
                 tools:layout_editor_absoluteY="555dp" />
+
+            <Button
+                android:id="@+id/bt_databinding"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="DATA BINDING"
+                tools:layout_editor_absoluteX="41dp"
+                tools:layout_editor_absoluteY="555dp" />
         </LinearLayout>
 
     </ScrollView>

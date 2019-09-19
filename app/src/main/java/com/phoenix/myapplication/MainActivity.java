@@ -24,6 +24,7 @@ import com.alibaba.fastjson.JSON;
 import com.blankj.utilcode.util.LogUtils;
 import com.phoenix.myapplication.adapter.CountSectionAdapter;
 import com.phoenix.myapplication.entity.DeviceBean;
+import com.phoenix.myapplication.view.DataBindingActivity;
 import com.phoenix.myapplication.view.sign.CustomSigningActivity;
 import com.phoenix.myapplication.view.expand.ExpandListViewActivity;
 import com.phoenix.myapplication.view.InstallAppActivity;
@@ -61,6 +62,7 @@ public class MainActivity extends AppCompatActivity
     Button bt_recycler_view_swip_delete;
     Button bt_nav_draw;
     Button btTableView;
+    Button bt_databinding;
     Toolbar toolbar;
     DrawerLayout drawer;
     NavigationView navigationView;
@@ -90,6 +92,7 @@ public class MainActivity extends AppCompatActivity
         navigationView = findViewById(R.id.nav_view);
         drawer = findViewById(R.id.drawer_layout);
         bt_nav_draw = findViewById(R.id.bt_nav_draw);
+        bt_databinding = findViewById(R.id.bt_databinding);
 
         bt_update_app = findViewById(R.id.bt_update_app);
         bt_recycler_view_expand = findViewById(R.id.bt_recycler_view_expand);
@@ -128,7 +131,10 @@ public class MainActivity extends AppCompatActivity
             startActivity(new Intent().setClass(this,
                     NavDrawActivity.class));
         });
-
+        bt_databinding.setOnClickListener(v -> {
+            startActivity(new Intent().setClass(this,
+                    DataBindingActivity.class));
+        });
         btTableView.setOnClickListener(view -> startActivity(new Intent().setClass(this,
                 TableViewActivity.class)));
     }

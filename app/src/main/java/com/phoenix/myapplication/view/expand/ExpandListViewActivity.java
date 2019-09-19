@@ -1,10 +1,13 @@
 package com.phoenix.myapplication.view.expand;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.databinding.DataBindingUtil;
+import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
@@ -12,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.blankj.utilcode.util.LogUtils;
+import com.blankj.utilcode.util.ToastUtils;
 import com.phoenix.myapplication.R;
 import com.phoenix.myapplication.databinding.ActivityExpandListViewBinding;
 
@@ -33,6 +37,7 @@ public class ExpandListViewActivity extends AppCompatActivity {
     }
 
 
+    @SuppressLint("ClickableViewAccessibility")
     private void initListener() {
 
         activityExpandListViewBinding.elvTest.setAdapter(new MyExtendableListViewAdapter());
@@ -45,10 +50,28 @@ public class ExpandListViewActivity extends AppCompatActivity {
         });
         //设置子项布局监听
         activityExpandListViewBinding.elvTest.setOnChildClickListener((parent, v, groupPosition, childPosition, id) -> {
-            Toast.makeText(getApplicationContext(), childString[groupPosition][childPosition], Toast.LENGTH_SHORT).show();
-            LogUtils.e("you");
+//            Toast.makeText(getApplicationContext(), childString[groupPosition][childPosition], Toast.LENGTH_SHORT).show();
+//            LogUtils.e("you");
+            TextView tvDevice=v.findViewById(R.id.tv_child_name);
 
-            return true;
+            tvDevice.setOnTouchListener((view, motionEvent) -> {
+                switch (motionEvent.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                        ToastUtils.showShort("hello");
+                        break;
+                    case MotionEvent.ACTION_MOVE:
+                        ToastUtils.showShort("hello1");
+                        break;
+                    case MotionEvent.ACTION_UP:
+                        ToastUtils.showShort("hello2");
+                        break;
+                    default:
+                        break;
+                }
+                return true;
+            });
+
+            return false;
 
         });
         //控制他只能打开一个组
@@ -75,7 +98,10 @@ public class ExpandListViewActivity extends AppCompatActivity {
 
     class MyExtendableListViewAdapter extends BaseExpandableListAdapter {
         private Context mcontext;
-
+        private boolean isBold=true;
+        public void setBold(boolean isBold){
+            this.isBold=isBold;
+        }
 
         @Override
         // 获取分组的个数
@@ -127,7 +153,6 @@ public class ExpandListViewActivity extends AppCompatActivity {
          * @param convertView   重用已有的视图对象
          * @param parent        返回的视图对象始终依附于的视图组
          */
-// 获取显示指定分组的视图
         @Override
         public View getGroupView(int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
             GroupViewHolder groupViewHolder;
@@ -140,11 +165,15 @@ public class ExpandListViewActivity extends AppCompatActivity {
                 groupViewHolder = (GroupViewHolder) convertView.getTag();
             }
             groupViewHolder.tvTitle.setText(groupString[groupPosition]);
+            if (isBold){
+                groupViewHolder.tvTitle.setTypeface(Typeface.DEFAULT_BOLD);
+            }
             return convertView;
         }
 
         /**
          * 获取一个视图对象，显示指定组中的指定子元素数据。
+         * 取得显示给定分组给定子位置的数据用的视图
          *
          * @param groupPosition 组位置
          * @param childPosition 子元素位置
@@ -156,13 +185,11 @@ public class ExpandListViewActivity extends AppCompatActivity {
          * android.view.ViewGroup)
          */
 
-        //取得显示给定分组给定子位置的数据用的视图
         @Override
         public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
             ChildViewHolder childViewHolder;
             if (convertView == null) {
-                convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_child, parent
-                        , false);
+                convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_child, parent, false);
                 childViewHolder = new ChildViewHolder();
                 childViewHolder.tvTitle = convertView.findViewById(R.id.tv_child_name);
                 convertView.setTag(childViewHolder);
@@ -171,6 +198,7 @@ public class ExpandListViewActivity extends AppCompatActivity {
                 childViewHolder = (ChildViewHolder) convertView.getTag();
             }
             childViewHolder.tvTitle.setText(childString[groupPosition][childPosition]);
+
             return convertView;
         }
 

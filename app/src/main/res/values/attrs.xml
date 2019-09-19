@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="LineItemView">
+        <attr name="li_text" format="string|reference" />
+        <attr name="li_name" format="string|reference" />
+        <attr name="li_left_icon" format="reference" />
+        <attr name="li_right_icon" format="reference" />
+        <attr name="li_left_right_padding" format="dimension" />
+        <attr name="li_bottom_line_size" format="dimension" />
+        <attr name="li_bottom_line_color" format="color" />
+    </declare-styleable>
+</resources>

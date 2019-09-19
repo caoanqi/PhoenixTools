@@ -17,7 +17,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".view.tabelview.TableViewActivity"></activity>
+        <activity android:name=".view.DataBindingActivity"></activity>
+        <activity android:name=".view.tabelview.TableViewActivity" />
         <activity android:name=".view.NavigationViewActivity" />
         <activity
             android:name=".view.NavDrawActivity"
