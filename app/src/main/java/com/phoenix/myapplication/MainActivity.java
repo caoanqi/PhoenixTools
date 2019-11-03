@@ -24,6 +24,7 @@ import com.alibaba.fastjson.JSON;
 import com.blankj.utilcode.util.LogUtils;
 import com.phoenix.myapplication.adapter.CountSectionAdapter;
 import com.phoenix.myapplication.entity.DeviceBean;
+import com.phoenix.myapplication.view.ChangeSkinActivity;
 import com.phoenix.myapplication.view.DataBindingActivity;
 import com.phoenix.myapplication.view.sign.CustomSigningActivity;
 import com.phoenix.myapplication.view.expand.ExpandListViewActivity;
@@ -62,6 +63,7 @@ public class MainActivity extends AppCompatActivity
     Button bt_recycler_view_swip_delete;
     Button bt_nav_draw;
     Button btTableView;
+    Button btChangeSkin;
     Button bt_databinding;
     Toolbar toolbar;
     DrawerLayout drawer;
@@ -99,6 +101,7 @@ public class MainActivity extends AppCompatActivity
         bt_recycler_view_swip_delete = findViewById(R.id.bt_recycler_view_swip_delete);
         bt_custom_sign = findViewById(R.id.bt_custom_sign);
         btTableView = findViewById(R.id.bt_table_view);
+        btChangeSkin = findViewById(R.id.bt_change_skin);
 
         setSupportActionBar(toolbar);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -127,16 +130,14 @@ public class MainActivity extends AppCompatActivity
                 RecyclerViewSwipDeleteActivity.class)));
         bt_recycler_view_expand.setOnClickListener(view -> startActivity(new Intent().setClass(this,
                 RecyclerViewActivity.class)));
-        bt_nav_draw.setOnClickListener(view -> {
-            startActivity(new Intent().setClass(this,
-                    NavDrawActivity.class));
-        });
-        bt_databinding.setOnClickListener(v -> {
-            startActivity(new Intent().setClass(this,
-                    DataBindingActivity.class));
-        });
+        bt_nav_draw.setOnClickListener(view -> startActivity(new Intent().setClass(this,
+                NavDrawActivity.class)));
+        bt_databinding.setOnClickListener(v -> startActivity(new Intent().setClass(this,
+                DataBindingActivity.class)));
         btTableView.setOnClickListener(view -> startActivity(new Intent().setClass(this,
                 TableViewActivity.class)));
+        btChangeSkin.setOnClickListener(view -> startActivity(new Intent().setClass(this,
+                ChangeSkinActivity.class)));
     }
 
     private void showAlertDialog() {

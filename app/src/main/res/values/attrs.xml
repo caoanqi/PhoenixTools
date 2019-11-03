@@ -9,4 +9,11 @@
         <attr name="li_bottom_line_size" format="dimension" />
         <attr name="li_bottom_line_color" format="color" />
     </declare-styleable>
+    <!--通用属性-->
+    <attr name="button_bg" format="reference|color" />
+    <attr name="activity_bg" format="reference|color" />
+    <attr name="nav_bg" format="reference|color" />
+    <attr name="text_bg" format="reference|color" />
+    <attr name="text_font_color" format="reference|color" />
+    <attr name="button_font_color" format="reference|color" />
 </resources>

@@ -107,6 +107,14 @@
                 android:text="DATA BINDING"
                 tools:layout_editor_absoluteX="41dp"
                 tools:layout_editor_absoluteY="555dp" />
+
+            <Button
+                android:id="@+id/bt_change_skin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="换肤"
+                tools:layout_editor_absoluteX="41dp"
+                tools:layout_editor_absoluteY="555dp" />
         </LinearLayout>
 
     </ScrollView>
