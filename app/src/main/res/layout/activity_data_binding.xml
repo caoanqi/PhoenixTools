@@ -7,8 +7,8 @@
 
         <variable
             name="data"
-            type="com.phoenix.myapplication.model.UserModel" />
-        <import type="com.phoenix.myapplication.widget.LineItemView" />
+            type="com.phoenix.ulin.model.UserModel" />
+        <import type="com.phoenix.ulin.widget.LineItemView" />
     </data>
 
     <LinearLayout

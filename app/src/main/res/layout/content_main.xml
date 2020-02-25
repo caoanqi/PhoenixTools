@@ -14,108 +14,170 @@
         android:layout_height="match_parent"
         android:scrollbars="none">
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            app:layout_constraintBottom_toTopOf="@+id/bt_custom_sign"
+            app:layout_constraintTop_toTopOf="@+id/bt_custom_sign">
 
 
             <Button
                 android:id="@+id/btn_usb_socket"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="35dp"
+                android:layout_marginTop="46dp"
                 android:text="USB SOCKET"
-                tools:layout_editor_absoluteX="35dp"
-                tools:layout_editor_absoluteY="46dp" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <Button
                 android:id="@+id/bt_qunee"
                 android:layout_width="135dp"
                 android:layout_height="54dp"
+                android:layout_marginStart="45dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginEnd="47dp"
                 android:text="Qunee 拓扑图"
-                tools:layout_editor_absoluteX="29dp"
-                tools:layout_editor_absoluteY="108dp" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/bt_recycler_view_expand"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <Button
                 android:id="@+id/bt_sqlite"
-                android:layout_width="122dp"
+                android:layout_width="0dp"
                 android:layout_height="45dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="79dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="80dp"
                 android:text="sqlite操作"
-                tools:layout_editor_absoluteX="32dp"
-                tools:layout_editor_absoluteY="184dp" />
+                app:layout_constraintBottom_toBottomOf="@+id/bt_recycler_view_swip_delete"
+                app:layout_constraintEnd_toStartOf="@+id/bt_expand_list_view"
+                app:layout_constraintStart_toStartOf="@+id/bt_recycler_view_expand"
+                app:layout_constraintTop_toTopOf="@+id/btn_usb_socket" />
 
             <Button
                 android:id="@+id/bt_expand_list_view"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
                 android:text="expand_list_view"
-                tools:layout_editor_absoluteX="32dp"
-                tools:layout_editor_absoluteY="252dp" />
+                app:layout_constraintBaseline_toBaselineOf="@+id/bt_sqlite"
+                app:layout_constraintStart_toEndOf="@+id/btn_usb_socket" />
 
             <Button
                 android:id="@+id/bt_recycler_view_expand"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
                 android:text="recyclerview 分级显示"
-                tools:layout_editor_absoluteX="35dp"
-                tools:layout_editor_absoluteY="326dp" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/bt_sqlite" />
 
             <Button
                 android:id="@+id/bt_recycler_view_swip_delete"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="40dp"
                 android:text="reyclerView侧滑删除"
-                tools:layout_editor_absoluteX="35dp"
-                tools:layout_editor_absoluteY="400dp" />
+                app:layout_constraintBottom_toTopOf="@+id/bt_photo"
+                app:layout_constraintEnd_toEndOf="@+id/bt_expand_list_view"
+                app:layout_constraintHorizontal_bias="0.453"
+                app:layout_constraintStart_toEndOf="@+id/bt_expand_list_view" />
 
             <Button
                 android:id="@+id/bt_custom_sign"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="35dp"
+                android:layout_marginTop="152dp"
+                android:layout_marginBottom="153dp"
                 android:text="自定义签字"
-                tools:layout_editor_absoluteX="42dp"
-                tools:layout_editor_absoluteY="478dp" />
+                app:layout_constraintBottom_toBottomOf="@+id/bt_databinding"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/bt_sqlite" />
 
             <Button
                 android:id="@+id/bt_update_app"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="19dp"
                 android:text="apk升级"
-                tools:layout_editor_absoluteX="41dp"
-                tools:layout_editor_absoluteY="555dp" />
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
 
             <Button
                 android:id="@+id/bt_nav_draw"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="72dp"
+                android:layout_marginBottom="14dp"
                 android:text="侧滑菜单"
-                tools:layout_editor_absoluteX="41dp"
-                tools:layout_editor_absoluteY="555dp" />
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <Button
+                android:id="@+id/bt_circle_img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="21dp"
+                android:layout_marginBottom="15dp"
+                android:text="圆形图片"
+                app:layout_constraintBottom_toTopOf="@+id/bt_table_view"
+                app:layout_constraintEnd_toEndOf="parent" />
 
             <Button
                 android:id="@+id/bt_table_view"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="25dp"
+                android:layout_marginBottom="13dp"
                 android:text="TableView"
-                tools:layout_editor_absoluteX="41dp"
-                tools:layout_editor_absoluteY="555dp" />
+                app:layout_constraintBottom_toTopOf="@+id/bt_nav_draw"
+                app:layout_constraintEnd_toEndOf="@+id/bt_nav_draw" />
 
             <Button
                 android:id="@+id/bt_databinding"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
                 android:text="DATA BINDING"
-                tools:layout_editor_absoluteX="41dp"
-                tools:layout_editor_absoluteY="555dp" />
+                app:layout_constraintBottom_toBottomOf="@+id/bt_table_view"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/bt_table_view" />
 
             <Button
                 android:id="@+id/bt_change_skin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginBottom="15dp"
                 android:text="换肤"
-                tools:layout_editor_absoluteX="41dp"
-                tools:layout_editor_absoluteY="555dp" />
-        </LinearLayout>
+                app:layout_constraintBottom_toTopOf="@+id/bt_table_view"
+                app:layout_constraintStart_toEndOf="@+id/bt_databinding" />
+
+            <Button
+                android:id="@+id/bt_alert_dialog"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="13dp"
+                android:text="弹框"
+                app:layout_constraintStart_toStartOf="@+id/bt_custom_sign"
+                app:layout_constraintTop_toBottomOf="@+id/bt_custom_sign" />
+
+            <Button
+                android:id="@+id/bt_photo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="7dp"
+                android:layout_marginBottom="29dp"
+                android:text="相册"
+                app:layout_constraintBottom_toTopOf="@+id/bt_change_skin"
+                app:layout_constraintEnd_toStartOf="@+id/bt_circle_img" />
+        </androidx.constraintlayout.widget.ConstraintLayout>>
 
     </ScrollView>
 </LinearLayout>

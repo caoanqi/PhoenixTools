@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.photo.PhotoActivity">
+
+        <Button
+            android:id="@+id/bt_take_photo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="7dp"
+            android:layout_marginLeft="7dp"
+            android:layout_marginTop="39dp"
+            android:layout_marginBottom="159dp"
+            android:text="拍照"
+            app:layout_constraintBottom_toTopOf="@+id/iv_show"
+            app:layout_constraintEnd_toStartOf="@+id/bt_select_photo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/bt_select_photo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="2dp"
+            android:layout_marginRight="2dp"
+            android:text="相册选取"
+            app:layout_constraintBaseline_toBaselineOf="@+id/bt_take_photo"
+            app:layout_constraintEnd_toStartOf="@+id/bt_video"
+            app:layout_constraintStart_toEndOf="@+id/bt_take_photo" />
+
+        <Button
+            android:id="@+id/bt_video"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="39dp"
+            android:layout_marginEnd="6dp"
+            android:layout_marginRight="6dp"
+            android:layout_marginBottom="159dp"
+            android:text="视频"
+            app:layout_constraintBottom_toTopOf="@+id/iv_show"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/bt_select_photo"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/iv_show"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="41dp"
+            android:layout_marginLeft="41dp"
+            android:layout_marginEnd="41dp"
+            android:layout_marginRight="41dp"
+            android:layout_marginBottom="96dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bt_video"
+            app:srcCompat="@drawable/ic_launcher_round" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
