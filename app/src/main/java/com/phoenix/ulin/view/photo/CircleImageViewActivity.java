@@ -1,8 +1,8 @@
 package com.phoenix.ulin.view.photo;
 
 import android.os.Bundle;
+import android.preference.PreferenceActivity;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
 import com.blankj.utilcode.util.ImageUtils;
@@ -12,7 +12,7 @@ import com.phoenix.ulin.databinding.ActivityCircleImageViewBinding;
 /**
  * 圆形图片
  */
-public class CircleImageViewActivity extends AppCompatActivity {
+public class CircleImageViewActivity extends PreferenceActivity {
 
     ActivityCircleImageViewBinding binding;
 
@@ -30,6 +30,15 @@ public class CircleImageViewActivity extends AppCompatActivity {
         binding.button.setOnClickListener(v -> {
             binding.civPic.setImageResource(R.mipmap.ic_launcher);
         });
+
+//        List<String> list = new ArrayList<String>();
+//        list.add("22");
+//        //warn
+//        List<String> test = (ArrayList<String>) list.subList(0, 1);
+//
+//        List<String> list2 = new ArrayList<String>(list.subList(0, 1));
+
+
 
     }
 }

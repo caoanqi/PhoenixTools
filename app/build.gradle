@@ -3,7 +3,7 @@ apply plugin: 'org.greenrobot.greendao'//greendao
 android {
     compileSdkVersion 28
     defaultConfig {
-        applicationId "com.phoenix.myapplication"
+        applicationId "com.phoenix.ulin"
         minSdkVersion 19
         targetSdkVersion 28
         versionCode 1
