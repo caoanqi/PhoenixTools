@@ -2,21 +2,19 @@ package com.phoenix.ulin.view;
 
 import android.content.Context;
 import android.content.Intent;
-
-import androidx.databinding.DataBindingUtil;
-
 import android.net.Uri;
 import android.os.Build;
-
-import androidx.core.content.FileProvider;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.FileProvider;
+import androidx.databinding.DataBindingUtil;
 
 import com.phoenix.ulin.BuildConfig;
 import com.phoenix.ulin.DestroyServices;
 import com.phoenix.ulin.R;
 import com.phoenix.ulin.databinding.ActivityInstallAppBinding;
+import com.ulin.baselib.utils.InputMethodMemoryUtil;
 
 import java.io.File;
 
@@ -80,5 +78,11 @@ public class InstallAppActivity extends AppCompatActivity {
             localIntent.putExtra("com.android.settings.ApplicationPkgName", getPackageName());
         }
         startActivity(localIntent);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        InputMethodMemoryUtil.fixFocusedViewLeak(getApplication());
     }
 }
