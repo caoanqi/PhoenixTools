@@ -1,4 +1,4 @@
-package com.phoenix.ulin;
+package com.phoenix.ulin.services;
 
 import android.app.Service;
 import android.content.Intent;
@@ -13,7 +13,7 @@ import com.blankj.utilcode.util.SPUtils;
 /**
  * 销毁服务
  */
-public class DestroyServices extends Service {
+public class DestroyService extends Service {
     /**
      * 24hours
      */

@@ -1,4 +1,4 @@
-package com.phoenix.ulin.view.sign;
+package com.phoenix.ulin.view.custom_view;
 
 import com.phoenix.ulin.R;
 import com.phoenix.ulin.databinding.ActivityCustomSigningBinding;

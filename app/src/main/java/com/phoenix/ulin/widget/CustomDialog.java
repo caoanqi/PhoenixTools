@@ -1,15 +1,17 @@
-package com.phoenix.ulin;
+package com.phoenix.ulin.widget;
 
 import android.app.Dialog;
 import android.content.Context;
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.phoenix.ulin.R;
 import com.phoenix.ulin.adapter.DialogCountSectionAdapter;
 import com.phoenix.ulin.entity.DeviceBean;
 import com.truizlop.sectionedrecyclerview.SectionedSpanSizeLookup;

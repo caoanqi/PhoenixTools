@@ -217,9 +217,10 @@ public class SignatureView extends View {
      * 重画bitmap
      */
     private void redrawBitmap() {
-        /*mBitmap = Bitmap.createBitmap(screenWidth, screenHeight,
-                Bitmap.Config.RGB_565);
-        mCanvas.setBitmap(mBitmap);// 重新设置画布，相当于清空画布*/
+        /*
+        mBitmap = Bitmap.createBitmap(screenWidth, screenHeight,Bitmap.Config.RGB_565);
+        mCanvas.setBitmap(mBitmap);// 重新设置画布，相当于清空画布
+        */
         initCanvas();
         Iterator<DrawPath> iter = mSavePath.iterator();
         while (iter.hasNext()) {

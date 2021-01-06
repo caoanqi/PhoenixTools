@@ -11,7 +11,7 @@ import androidx.core.content.FileProvider;
 import androidx.databinding.DataBindingUtil;
 
 import com.phoenix.ulin.BuildConfig;
-import com.phoenix.ulin.DestroyServices;
+import com.phoenix.ulin.services.DestroyServices;
 import com.phoenix.ulin.R;
 import com.phoenix.ulin.databinding.ActivityInstallAppBinding;
 import com.ulin.baselib.utils.InputMethodMemoryUtil;
@@ -57,6 +57,7 @@ public class InstallAppActivity extends AppCompatActivity {
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         }
         startActivity(intent);
+
 
     }
 

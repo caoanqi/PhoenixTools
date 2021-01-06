@@ -1,14 +1,10 @@
-package com.phoenix.ulin;
+package com.phoenix.ulin.view;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
-import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Button;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -19,27 +15,11 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.alibaba.fastjson.JSON;
 import com.blankj.utilcode.util.LogUtils;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
+import com.phoenix.ulin.R;
 import com.phoenix.ulin.adapter.CountSectionAdapter;
 import com.phoenix.ulin.entity.DeviceBean;
-import com.phoenix.ulin.view.ChangeSkinActivity;
-import com.phoenix.ulin.view.DataBindingActivity;
-import com.phoenix.ulin.view.Dialog.AlertDialogActivity;
-import com.phoenix.ulin.view.InstallAppActivity;
-import com.phoenix.ulin.view.NavDrawActivity;
-import com.phoenix.ulin.view.UsbSocketActivity;
-import com.phoenix.ulin.view.data.SqliteActivity;
-import com.phoenix.ulin.view.expand.ExpandListViewActivity;
-import com.phoenix.ulin.view.photo.CircleImageViewActivity;
-import com.phoenix.ulin.view.photo.PhotoActivity;
-import com.phoenix.ulin.view.recyclerview.RecyclerViewActivity;
-import com.phoenix.ulin.view.recyclerview.RecyclerViewSwipDeleteActivity;
-import com.phoenix.ulin.view.sign.CustomSigningActivity;
-import com.phoenix.ulin.view.tabelview.TableViewActivity;
-import com.phoenix.ulin.view.web.QuneeActivity;
 import com.tbruyelle.rxpermissions2.Permission;
 import com.tbruyelle.rxpermissions2.RxPermissions;
 import com.truizlop.sectionedrecyclerview.SectionedSpanSizeLookup;
@@ -56,22 +36,6 @@ public class MainActivity extends AppCompatActivity
     private static final String TAG = MainActivity.class.getSimpleName();
     RecyclerView recycler;
     List<DeviceBean> deviceBeanList;
-    private FloatingActionButton fab;
-    Button btnUsbSocket;
-    Button btnQunee;
-    Button btSqlite;
-    Button bt_expand_list_view;
-    Button bt_update_app;
-    Button bt_custom_sign;
-    Button bt_recycler_view_expand;
-    Button bt_recycler_view_swip_delete;
-    Button bt_nav_draw;
-    Button btTableView;
-    Button btChangeSkin;
-    Button bt_alert_dialog;
-    Button bt_databinding;
-    Button btPhoto;
-    Button bt_circle_img;
     Toolbar toolbar;
     DrawerLayout drawer;
     NavigationView navigationView;
@@ -93,84 +57,18 @@ public class MainActivity extends AppCompatActivity
     private void initView() {
         toolbar = findViewById(R.id.toolbar);
         recycler = findViewById(R.id.recycler);
-        fab = findViewById(R.id.fab);
-        btnUsbSocket = findViewById(R.id.btn_usb_socket);
-        btnQunee = findViewById(R.id.bt_qunee);
-        bt_expand_list_view = findViewById(R.id.bt_expand_list_view);
-        btSqlite = findViewById(R.id.bt_sqlite);
         navigationView = findViewById(R.id.nav_view);
         drawer = findViewById(R.id.drawer_layout);
-        bt_nav_draw = findViewById(R.id.bt_nav_draw);
-        bt_databinding = findViewById(R.id.bt_databinding);
-        bt_alert_dialog = findViewById(R.id.bt_alert_dialog);
-
-        bt_update_app = findViewById(R.id.bt_update_app);
-        bt_recycler_view_expand = findViewById(R.id.bt_recycler_view_expand);
-        bt_recycler_view_swip_delete = findViewById(R.id.bt_recycler_view_swip_delete);
-        bt_custom_sign = findViewById(R.id.bt_custom_sign);
-        bt_circle_img = findViewById(R.id.bt_circle_img);
-        btTableView = findViewById(R.id.bt_table_view);
-        btPhoto = findViewById(R.id.bt_photo);
-        btChangeSkin = findViewById(R.id.bt_change_skin);
-
         setSupportActionBar(toolbar);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+                this, drawer, toolbar,
+                R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
     }
 
     private void initListener() {
-        fab.setOnClickListener(v -> showAlertDialog());
         navigationView.setNavigationItemSelectedListener(this);
-
-        btnQunee.setOnClickListener(v -> startActivity(new Intent().setClass(this,
-                QuneeActivity.class)));
-        btSqlite.setOnClickListener(v -> startActivity(new Intent().setClass(this,
-                SqliteActivity.class)));
-        btnUsbSocket.setOnClickListener(v -> startActivity(new Intent().setClass(this,
-                UsbSocketActivity.class)));
-        bt_expand_list_view.setOnClickListener(v -> startActivity(new Intent().setClass(this,
-                ExpandListViewActivity.class)));
-        bt_update_app.setOnClickListener(v -> startActivity(new Intent().setClass(this,
-                InstallAppActivity.class)));
-        bt_custom_sign.setOnClickListener(v -> startActivity(new Intent().setClass(this,
-                CustomSigningActivity.class)));
-        bt_recycler_view_swip_delete.setOnClickListener(view -> startActivity(new Intent().setClass(this,
-                RecyclerViewSwipDeleteActivity.class)));
-        bt_recycler_view_expand.setOnClickListener(view -> startActivity(new Intent().setClass(this,
-                RecyclerViewActivity.class)));
-        bt_nav_draw.setOnClickListener(view -> startActivity(new Intent().setClass(this,
-//                HuaDongActivity.class)));
-                NavDrawActivity.class)));
-        bt_databinding.setOnClickListener(v -> startActivity(new Intent().setClass(this,
-                DataBindingActivity.class)));
-        btTableView.setOnClickListener(view -> startActivity(new Intent().setClass(this,
-                TableViewActivity.class)));
-        btChangeSkin.setOnClickListener(view -> startActivity(new Intent().setClass(this,
-                ChangeSkinActivity.class)));
-        bt_alert_dialog.setOnClickListener(view -> startActivity(new Intent().setClass(this,
-                AlertDialogActivity.class)));
-        btPhoto.setOnClickListener(view -> {
-            startActivity(new Intent().setClass(this, PhotoActivity.class));
-        });
-
-        bt_circle_img.setOnClickListener(v -> {
-            startActivity(new Intent().setClass(this, CircleImageViewActivity.class));
-        });
-    }
-
-    private void showAlertDialog() {
-        CustomDialog infoDialog = new CustomDialog.Builder(this)
-                .setDeviceList(deviceBeanList)
-                .setSureButton(new CustomDialog.DialogCallback() {
-                    @Override
-                    public void onSureClickListener(List<DeviceBean> deviceBeans) {
-                        Log.e("TestData:", JSON.toJSON(deviceBeans).toString());
-                    }
-                })
-                .create();
-        infoDialog.show();
     }
 
 
@@ -289,10 +187,6 @@ public class MainActivity extends AppCompatActivity
                         }
                     }
                 });
-    }
-
-    private void show(String msg) {
-        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
     }
 
     @Override

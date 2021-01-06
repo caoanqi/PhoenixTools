@@ -1,10 +1,11 @@
-package com.phoenix.ulin.view;
+package com.phoenix.ulin.view.thread;
 
-import androidx.databinding.DataBindingUtil;
-import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 
 import com.phoenix.ulin.R;
 import com.phoenix.ulin.databinding.ActivityUsbSocketBinding;

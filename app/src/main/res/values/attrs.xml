@@ -16,4 +16,13 @@
     <attr name="text_bg" format="reference|color" />
     <attr name="text_font_color" format="reference|color" />
     <attr name="button_font_color" format="reference|color" />
+
+    <!--圆弧进度条-->
+    <declare-styleable name="TasksCompletedView">
+        <attr name="radius" format="dimension"/>
+        <attr name="strokeWidth" format="dimension"/>
+        <attr name="circleColor" format="color"/>
+        <attr name="ringColor" format="color"/>
+        <attr name="ringBgColor" format="color"/>
+    </declare-styleable>
 </resources>

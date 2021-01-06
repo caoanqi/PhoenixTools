@@ -70,4 +70,5 @@ dependencies {
     debugImplementation 'com.amitshekhar.android:debug-db:1.0.6'
     implementation project(path: ':baselib')
 //    implementation "com.github.tamsiree.RxTool:RxKit:v2.4.1"
+    implementation 'net.zetetic:android-database-sqlcipher:4.2.0'
 }

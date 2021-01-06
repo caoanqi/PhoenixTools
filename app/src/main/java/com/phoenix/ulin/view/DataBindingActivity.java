@@ -1,8 +1,9 @@
 package com.phoenix.ulin.view;
 
-import androidx.databinding.DataBindingUtil;
-import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 
 import com.phoenix.ulin.R;
 import com.phoenix.ulin.databinding.ActivityDataBindingBinding;
@@ -15,8 +16,7 @@ public class DataBindingActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        activityDataBindingBinding =
-                DataBindingUtil.setContentView(this, R.layout.activity_data_binding);
+        activityDataBindingBinding = DataBindingUtil.setContentView(this, R.layout.activity_data_binding);
 
         UserModel userModel = new UserModel();
         userModel.setName("孙悟空");

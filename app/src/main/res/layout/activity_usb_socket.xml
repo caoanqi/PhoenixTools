@@ -6,7 +6,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".view.UsbSocketActivity">
+        tools:context=".view.thread.UsbSocketActivity">
 
         <Button
             android:id="@+id/bt_accept_data"
